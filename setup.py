@@ -37,8 +37,8 @@ if not os.path.isdir("local/chapas"):
 
 setuptools.setup(
   name="chapas-cygwin64",
-  version="0.1",
+  version="0.2",
   packages=setuptools.find_packages(),
-  data_files=[(p,[os.path.join(p,e) for e in f]) for p,d,f in os.walk("local") if f!=[]] 
+  data_files=[(p,[os.path.join(p,e) for e in f]) for p,d,f in os.walk("local") if f!=[]],
   install_requires=["cabocha-cygwin64@git+https://github.com/KoichiYasuoka/cabocha-cygwin64"]
 )
