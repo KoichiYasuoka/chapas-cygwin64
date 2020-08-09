@@ -5,7 +5,7 @@ else:
   raise OSError("chapas-cygwin64 only for 64-bit Cygwin")
 
 CHAPAS_URL="https://drive.google.com/uc?export=download&id=0BwG_CvJHq43fNDlqSkVSREkzaEk"
-JDK_URL="https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_windows-x64_bin.zip"
+JDK_URL="https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip"
 
 if not os.path.isdir("local/chapas"):
   import urllib.request,tarfile,zipfile,glob,subprocess
@@ -37,7 +37,7 @@ if not os.path.isdir("local/chapas"):
 
 setuptools.setup(
   name="chapas-cygwin64",
-  version="0.2",
+  version="0.3.11",
   packages=setuptools.find_packages(),
   data_files=[(p,[os.path.join(p,e) for e in f]) for p,d,f in os.walk("local") if f!=[]],
   install_requires=["cabocha-cygwin64@git+https://github.com/KoichiYasuoka/cabocha-cygwin64"]
