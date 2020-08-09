@@ -1,7 +1,7 @@
 #! /bin/sh
 TMP=/tmp/chapas$$
 D=`echo $0 | sed 's?/bin/[^/]*$?/chapas?'`
-$D/jdk/bin/java.exe --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED -Xmx1g -jar "`cygpath -ad $D/chapas.jar`" "$@" > $TMP
+$D/jdk/bin/java.exe -Xmx1g -jar "`cygpath -ad $D/chapas.jar`" "$@" > $TMP
 cat $TMP
 rm -f $TMP
 exit 0
