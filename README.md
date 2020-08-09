@@ -2,7 +2,7 @@
 
 [ChaPAS](https://sites.google.com/site/yotarow/chapas) 0.742 (UTF-8 only) for [Cygwin64](https://www.cygwin.com/).
 
-## Usage
+## Basic Usage
 
 ```sh
 echo 太郎は花子が読んでいる本を次郎に渡した | chapas -I RAW
