@@ -5,7 +5,7 @@ else:
   raise OSError("chapas-cygwin64 only for 64-bit Cygwin")
 
 CHAPAS_URL="https://drive.google.com/uc?export=download&id=0BwG_CvJHq43fNDlqSkVSREkzaEk"
-JDK_URL="https://github.com/ojdkbuild/ojdkbuild/releases/download/java-1.8.0-openjdk-1.8.0.222-2.b10/java-1.8.0-openjdk-1.8.0.222-2.b10.ojdkbuild.windows.x86_64.zip'
+JDK_URL="https://github.com/ojdkbuild/ojdkbuild/releases/download/java-1.8.0-openjdk-1.8.0.265-1.b01-x86/java-1.8.0-openjdk-jre-1.8.0.265-1.b01.ojdkbuild.windows.x86.zip"
 
 if not os.path.isdir("local/chapas"):
   import urllib.request,tarfile,zipfile,glob,subprocess
@@ -31,13 +31,13 @@ if not os.path.isdir("local/chapas"):
   f,h=urllib.request.urlretrieve(JDK_URL)
   with zipfile.ZipFile(f) as z:
     z.extractall("local")
-  os.renames(glob.glob("local/jdk-*")[0],"local/chapas/jdk")
+  os.renames(glob.glob("local/java-*")[0],"local/chapas/jdk")
   for f in glob.glob("local/chapas/jdk/bin/**/*.[ed][xl][el]",recursive=True):
     os.chmod(f,0o755)
 
 setuptools.setup(
   name="chapas-cygwin64",
-  version="0.4.1",
+  version="0.4.2",
   packages=setuptools.find_packages(),
   data_files=[(p,[os.path.join(p,e) for e in f]) for p,d,f in os.walk("local") if f!=[]],
   install_requires=["cabocha-cygwin64@git+https://github.com/KoichiYasuoka/cabocha-cygwin64"]
