@@ -8,7 +8,7 @@ CHAPAS_URL="https://drive.google.com/uc?export=download&id=0BwG_CvJHq43fNDlqSkVS
 JDK_URL="https://github.com/ojdkbuild/ojdkbuild/releases/download/java-1.8.0-openjdk-1.8.0.252-2.b09/java-1.8.0-openjdk-jre-1.8.0.252-2.b09.ojdkbuild.windows.x86_64.zip"
 
 if not os.path.isdir("local/chapas"):
-  import urllib.request,tarfile,zipfile,glob,subprocess
+  import urllib.request,tarfile,zipfile,glob
   from http.cookiejar import CookieJar
   p=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(CookieJar()))
   r=p.open(CHAPAS_URL)
@@ -37,7 +37,7 @@ if not os.path.isdir("local/chapas"):
 
 setuptools.setup(
   name="chapas-cygwin64",
-  version="0.4.4",
+  version="0.4.5",
   packages=setuptools.find_packages(),
   data_files=[(p,[os.path.join(p,e) for e in f]) for p,d,f in os.walk("local") if f!=[]],
   install_requires=["cabocha-cygwin64@git+https://github.com/KoichiYasuoka/cabocha-cygwin64"]
